@@ -1,7 +1,7 @@
 package com.example.myarsitekturmvvm.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.myarsitekturmvvm.model.Siswa
+import com.example.myarsitekturmvvm.room.Siswa
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
