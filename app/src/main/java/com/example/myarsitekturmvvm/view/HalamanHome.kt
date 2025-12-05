@@ -81,3 +81,50 @@ fun HomeScreen(
         }
     }
 }
+
+@Composable
+fun BodyHome(
+    itemSiswa: List<Siswa>,
+    onSiswaClick: (Int) -> Unit,
+    modifier: Modifier = Modifier)
+    {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier
+        ){
+            if (itemSiswa.isEmpty()){
+                Text(
+                    text = stringResource(R.string.tidak_ada_data),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleLarge
+                )
+            } else {
+                ListSiswa(
+                    itemSiswa = itemSiswa,
+                    onSiswaClick = {onSiswaClick(it.id)},
+                    modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+                )
+            }
+        }
+    }
+
+@Composable
+fun ListSiswa(
+    itemSiswa: List<Siswa>,
+    onSiswaClick: (Siswa) ->Unit,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        items(item = itemSiswa, key = {it.id}) { 
+            person -> DataSiswa(
+                siswa = person,
+                modifier = Modifier
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .clickable { onSiswaClick(person) }
+            )
+            
+        }
+    }
+}

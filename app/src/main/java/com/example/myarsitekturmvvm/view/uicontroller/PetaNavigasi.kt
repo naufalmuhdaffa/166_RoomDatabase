@@ -40,6 +40,9 @@ fun HostNavigasi(
                 navigateToItemEntry = {
                     navController.navigate(DestinasiEntry.route)
                 }
+                navigateToItemUpdate = {
+                    navController.navigate("${DestinasiDetailSiswa.route}/${it}")
+                }
             )
         }
 
@@ -50,5 +53,20 @@ fun HostNavigasi(
                 }
             )
         }
+
+        composable(route = DestinasiDetailSiswa.routeWithArgs,
+            arguments = listOf(navArgument(itemIdArg)){
+                type = NavType.IntType
+            }
+        )
+    }{
+        DetailSiswaScreen(
+            navigateToEditItem = {
+                navController.navigate("${DestinasiEditSiswa.route}/$it")
+            },
+            navigateBack = {
+                navController.navigateUp()
+            }
+        )
     }
 }
