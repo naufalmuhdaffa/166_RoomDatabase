@@ -2,9 +2,9 @@ package com.example.myarsitekturmvvm.view.route
 
 import com.example.myarsitekturmvvm.R
 
-object DestinasiDetailSiswa : DestinasiNavigasi {
-    override val route = "detail_siswa"
-    override val titleRes = R.string.detail_siswa
+object DestinasiEditSiswa : DestinasiNavigasi {
+    override val route = "item_edit"
+    override val titleRes = R.string.edit_siswa
     const val itemIdArg = "idSiswa"
     val routeWithArgs = "$route/{$itemIdArg}"
 }
